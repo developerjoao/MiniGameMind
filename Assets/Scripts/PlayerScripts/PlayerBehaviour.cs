@@ -28,15 +28,30 @@ public class PlayerBehaviour : MonoBehaviour
     }
 
     bool canMove = true;
+    bool moving = false;
     bool canJump = true;
+    bool isJumping = false;
+    bool interacting = false;
     void MoveState()
     {
-        if(canJump && Input.GetKeyDown("space"))
+        if(canJump && Input.GetKeyDown("space") && IsGrounded())
         {
             Jump();
         }
+        
+        if(isJumping && Mathf.Floor(playerRB.velocity.y) == 0)
+        {
+            Land();
+        }
 
-        Move();
+        if(!interacting && Input.GetKeyDown(KeyCode.E) && !moving)
+        {
+            Interact();
+        }
+        if(canMove)
+        {
+            Move();
+        }
     }
 
     void Move()
@@ -44,10 +59,12 @@ public class PlayerBehaviour : MonoBehaviour
         Vector3 movementVector = new Vector3(Input.GetAxis("Horizontal"), 0 , Input.GetAxis("Vertical"));
         if(movementVector.magnitude > 0)
         {
+            moving = true;
             transform.rotation = Quaternion.LookRotation(movementVector);
             playerAnim.SetBool("isMoving", true);
             transform.position = transform.position + (movementVector * moveSpeed * Time.deltaTime);
         }else{
+            moving = false;
             playerAnim.SetBool("isMoving", false);
         }
     }
@@ -55,10 +72,65 @@ public class PlayerBehaviour : MonoBehaviour
     public float jumpForce = 5f;
     void Jump()
     {
-        canMove = false;
+    
         canJump = false;
+        isJumping = true;
 
+        playerAnim.SetBool("isJumping", true);
         playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
+
+    void Land()
+    {
+        isJumping = false;
+        playerAnim.SetBool("isJumping", false);
+    }
+
+    public bool IsGrounded()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, out hit))
+        {
+            if(hit.transform.CompareTag("Ground"))
+            {
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
     
+    public void EnableMovement()
+    {
+        canMove = true;
+        canJump = true;
+    }
+
+    public void DisableMovement()
+    {
+        canJump = false;
+        canMove = false;
+    }
+
+    public void ToggleJump()
+    {
+        if(canJump)
+        {
+            canJump = false;
+        }else{
+            canJump = true;
+        }
+    }
+
+    void Interact()
+    {
+        playerAnim.SetBool("isInteracting", true);
+    }
+    public void FinishInteractAnim()
+    {
+        playerAnim.SetBool("isInteracting", false);
+    }
 }

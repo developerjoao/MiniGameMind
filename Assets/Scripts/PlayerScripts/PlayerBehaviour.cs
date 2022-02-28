@@ -17,12 +17,30 @@ public class PlayerBehaviour : MonoBehaviour
     {
         playerRB = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
+
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        //Movimento usando transform position
+        MoveState();
+    }
+
+    bool canMove = true;
+    bool canJump = true;
+    void MoveState()
+    {
+        if(canJump && Input.GetKeyDown("space"))
+        {
+            Jump();
+        }
+
+        Move();
+    }
+
+    void Move()
+    {
         Vector3 movementVector = new Vector3(Input.GetAxis("Horizontal"), 0 , Input.GetAxis("Vertical"));
         if(movementVector.magnitude > 0)
         {
@@ -32,13 +50,15 @@ public class PlayerBehaviour : MonoBehaviour
         }else{
             playerAnim.SetBool("isMoving", false);
         }
-
-        //Movimento usando velocity
-        /*
-        playerRB.velocity = new Vector3(
-			Mathf.Lerp(0, Input.GetAxis("Horizontal")* moveSpeed, 0.8f),
-			playerRB.velocity.y,
-			Mathf.Lerp(0, Input.GetAxis("Vertical")* moveSpeed, 0.8f)
-		);*/
     }
+
+    public float jumpForce = 5f;
+    void Jump()
+    {
+        canMove = false;
+        canJump = false;
+
+        playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+    
 }

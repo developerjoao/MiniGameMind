@@ -30,7 +30,6 @@ public class PlayerBehaviour : MonoBehaviour
     bool canMove = true;
     bool moving = false;
     bool canJump = true;
-    bool isJumping = false;
     bool interacting = false;
     void MoveState()
     {
@@ -39,7 +38,7 @@ public class PlayerBehaviour : MonoBehaviour
             Jump();
         }
         
-        if(isJumping && Mathf.Floor(playerRB.velocity.y) == 0)
+        if(IsGrounded() && playerRB.velocity.y < -1)
         {
             Land();
         }
@@ -74,7 +73,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
     
         canJump = false;
-        isJumping = true;
 
         playerAnim.SetBool("isJumping", true);
         playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -82,7 +80,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Land()
     {
-        isJumping = false;
         playerAnim.SetBool("isJumping", false);
     }
 

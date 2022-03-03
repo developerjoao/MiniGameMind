@@ -130,4 +130,17 @@ public class PlayerBehaviour : MonoBehaviour
     {
         playerAnim.SetBool("isInteracting", false);
     }
+
+    void Hit()
+    {
+        RaycastHit hit;
+
+        if(Physics.Raycast(transform.position , transform.forward, out hit))
+        {
+            if(hit.collider.CompareTag("EnemyObject"))
+            {
+                //Hit object
+            }
+        }
+    }
 }

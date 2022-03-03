@@ -36,12 +36,16 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Objects\Collectables\CollectableBehaviour.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\PlayerBehaviour.cs" />
      <Compile Include="Assets\Scripts\Systems\CameraFollowPlayer.cs" />
      <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
      <Compile Include="Assets\Scripts\Systems\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Objects\Collectables\CollectableBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Objects\Interactables\InteractableObject.cs" />
+     <Compile Include="Assets\Scripts\Objects\Interactables\SwitchObject.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Vessel_Enemy.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.15f2/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

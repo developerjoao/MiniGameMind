@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -7926662127563024083, guid: 3fa3ec7cf9018ed4f9ebac407f1c33b8, type: 3}
+  m_Motion: {fileID: 7400000, guid: f53dbd253cb532e418fec52ac8a48339, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -47,7 +47,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -8268113363304870165, guid: 3fa3ec7cf9018ed4f9ebac407f1c33b8, type: 3}
+  m_Motion: {fileID: 7400000, guid: 7e71e03363fae77438a143a452b6dad3, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -90,7 +90,7 @@ AnimatorController:
   m_Name: Vine Wall Animator
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: VesselBroke
+  - m_Name: Cleared
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -116,7 +116,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Cleared
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3293102415788094372}
   m_Solo: 0
@@ -152,7 +155,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 993753541440193206, guid: 3fa3ec7cf9018ed4f9ebac407f1c33b8, type: 3}
+  m_Motion: {fileID: 7400000, guid: 9694c8973f77d244285015523d4de450, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

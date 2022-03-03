@@ -17,7 +17,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         playerRB = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
-
     }
 
 
@@ -31,6 +30,7 @@ public class PlayerBehaviour : MonoBehaviour
     bool moving = false;
     bool canJump = true;
     bool interacting = false;
+    bool attacking = false;
     void MoveState()
     {
         if(canJump && Input.GetKeyDown("space") && IsGrounded())
@@ -46,6 +46,11 @@ public class PlayerBehaviour : MonoBehaviour
         if(!interacting && Input.GetKeyDown(KeyCode.E) && !moving)
         {
             Interact();
+        }
+
+        if(!attacking && Input.GetKeyDown(KeyCode.F) && !moving)
+        {
+            Hit();
         }
         if(canMove)
         {
@@ -133,14 +138,24 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Hit()
     {
+        attacking = true;
+        playerAnim.SetBool("isHitting", true);
+
         RaycastHit hit;
 
         if(Physics.Raycast(transform.position , transform.forward, out hit))
         {
             if(hit.collider.CompareTag("EnemyObject"))
             {
-                //Hit object
+                
+                hit.collider.gameObject.GetComponent<Vessel_Enemy>().TakeDamage(1);
             }
         }
+    }
+
+    public void ResetPlayerHitAnim()
+    {
+        attacking = false;
+        playerAnim.SetBool("isHitting", false);
     }
 }

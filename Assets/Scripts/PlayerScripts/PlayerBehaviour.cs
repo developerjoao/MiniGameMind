@@ -48,7 +48,7 @@ public class PlayerBehaviour : MonoBehaviour
             Interact();
         }
 
-        if(!attacking && Input.GetKeyDown(KeyCode.F) && !moving)
+        if(!attacking && Input.GetKeyDown(KeyCode.Z) && !moving)
         {
             Hit();
         }
@@ -140,7 +140,10 @@ public class PlayerBehaviour : MonoBehaviour
     {
         attacking = true;
         playerAnim.SetBool("isHitting", true);
+    }
 
+    public void DealDamage()
+    {
         RaycastHit hit;
 
         if(Physics.Raycast(transform.position , transform.forward, out hit))
@@ -157,5 +160,10 @@ public class PlayerBehaviour : MonoBehaviour
     {
         attacking = false;
         playerAnim.SetBool("isHitting", false);
+    }
+
+    public void TakeDamage()
+    {
+
     }
 }

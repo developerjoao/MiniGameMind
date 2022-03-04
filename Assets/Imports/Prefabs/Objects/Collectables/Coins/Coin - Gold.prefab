@@ -187,9 +187,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8944736892055702523}
-  - component: {fileID: 8989886123901404120}
   - component: {fileID: 8560915530303285390}
   - component: {fileID: 2251531520038552179}
+  - component: {fileID: 5242441619587169109}
   m_Layer: 0
   m_Name: Coin - Gold
   m_TagString: Untagged
@@ -213,18 +213,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8989886123901404120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604626693702783297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb6029329e92e60418347e7da48b466e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &8560915530303285390
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -257,6 +245,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5242441619587169109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604626693702783297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7edbe2fc6b42a47a08518c713696ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myValue: 0
 --- !u!1 &8998702815460569232
 GameObject:
   m_ObjectHideFlags: 0

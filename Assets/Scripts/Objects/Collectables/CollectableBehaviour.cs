@@ -4,23 +4,16 @@ using UnityEngine;
 
 public class CollectableBehaviour : MonoBehaviour
 {
-    Animator collectableAnimator;
-    Collider myCollider;
 
     // Start is called before the first frame update
     void Start()
     {
-        collectableAnimator = GetComponent<Animator>();
-        myCollider = GetComponent<Collider>();
+        
     }
 
-    void OnCollisionEnter(Collision collision)
+    public virtual void Collect(int value)
     {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            collectableAnimator.SetBool("Collected", true);
-            myCollider.enabled = false;
-        }
+        GameManager.Instance.CollectCoin(value);
     }
 
     void DestroyMyself()

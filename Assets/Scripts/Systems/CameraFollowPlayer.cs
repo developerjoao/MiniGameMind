@@ -6,6 +6,8 @@ public class CameraFollowPlayer : MonoBehaviour
 {
     Transform playerTransform;
     public Vector3 offset;
+    Vector3 velocity = Vector3.zero;
+    public float smoothTime = 0.3f;
     void Start()
     {
         playerTransform = GameObject.FindWithTag("Player").transform;
@@ -14,6 +16,7 @@ public class CameraFollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = playerTransform.position - offset;
+        Vector3 targetPosition = playerTransform.position - offset;
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
 }

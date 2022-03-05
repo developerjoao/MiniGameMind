@@ -43,12 +43,14 @@
      <Compile Include="Assets\Scripts\Objects\Obstacles\StandardObstacle.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\SwitchObject.cs" />
      <Compile Include="Assets\Scripts\Objects\Collectables\CoinCollectable.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Vine_Enemy.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\PlayerBehaviour.cs" />
      <Compile Include="Assets\Scripts\Systems\CameraFollowPlayer.cs" />
      <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
      <Compile Include="Assets\Scripts\Systems\GameManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\InteractableObject.cs" />
-     <Compile Include="Assets\Scripts\Enemies\Vine_Enemy.cs" />
+     <Compile Include="Assets\Scripts\UI\TitleScreenManagement.cs" />
+     <Compile Include="Assets\Scripts\Objects\Obstacles\FinishLine.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

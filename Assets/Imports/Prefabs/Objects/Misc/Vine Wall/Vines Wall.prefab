@@ -588,6 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aadba3e8c4a2b1843be4c63988a2987a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 0}
 --- !u!95 &3717274088179780854
 Animator:
   serializedVersion: 3
@@ -598,7 +599,7 @@ Animator:
   m_GameObject: {fileID: 750945140723897226}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1f0e031a94390b14ba22e8f3bdf895ac, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2b4513956840f2945b2155a41ca7e9e3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

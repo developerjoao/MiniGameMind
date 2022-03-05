@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -79,6 +80,21 @@ public class GameManager : MonoBehaviour
     public void ResumeTime()
     {
         Time.timeScale = 1;
+    }
+
+    public void EnablePlayer()
+    {
+        playerObject.EnableMovement();
+    }
+
+    public void DisablePlayer()
+    {
+        playerObject.DisableMovement();
+    }
+
+    public void FinishGarden()
+    {
+        SceneManager.LoadScene(2);
     }
 
     public PlayerBehaviour playerObject;

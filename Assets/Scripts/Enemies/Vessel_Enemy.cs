@@ -8,6 +8,7 @@ public class Vessel_Enemy : EnemyBehaviour
     Animator enemyAnimator;
 
     public StandardObstacle vineWall;
+    
 
     void Start()
     {
@@ -29,4 +30,5 @@ public class Vessel_Enemy : EnemyBehaviour
             enemyAnimator.SetBool("Dead", true);
         }
     }
+
 }
